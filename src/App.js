@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css'
 
+
+function NavbarComponent() {
+  return (
+    <>
+    <div className='navbar-section flex justify-around'>
+      <div className='logo-section bg-green-300'>procer</div>
+      <div className='navigation-section bg-blue-400'>
+        <ul>
+          <a href='.'><li className='display list-none inline'>Shop</li></a>
+          <a href='.'><li className='display list-none inline'>About</li></a>
+          <a href='.'><li className='display list-none inline'>Contact</li></a>
+          <a href='.'><li className='display list-none inline'>Cart</li></a>
+          <a href='.'><li className='display list-none inline'>Shop</li></a>
+        </ul>
+      </div>
+    </div>
+    </>
+  )
+}
+
+function MainComponent() {
+  return (
+    <>
+    <div className='main-section'>
+    
+    </div> 
+    </>
+  )
+}
+
+// app
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='parent-section bg-slate-300 w-screen h-screen'>
+    <NavbarComponent/>
+      Başlangıç
     </div>
   );
 }
