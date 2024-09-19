@@ -1,3 +1,3 @@
 # Getting Started with My Project
 
-I am going to try somethings.
+I am going to try something.
