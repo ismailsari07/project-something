@@ -11,7 +11,7 @@ export default function Home() {
         <div>
             <div className='main-section relative flex h-full items-center justify-center mb-48'>
                 <img src={myMainImage} className='object-fill h-full w-full brightness-50 rounded-3xl overflow-hidden' />
-                <div className='absolute top-0 left-0 right-0 bottom-0 self-center w-full text-center text-7xl font-bold leading-5 text-white'><h1>Lorem, ipsum dolor.</h1></div>
+                <div className='absolute top-0 left-0 right-0 bottom-0 self-center w-full text-center text-7xl font-bold leading-5 text-white'><h1><span className="text-primary-400">Constructing</span> Your Future Today</h1></div>
             </div> 
 
             <div className='featured-products-section flex flex-col mb-48'>
