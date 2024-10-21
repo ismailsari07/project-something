@@ -15,7 +15,7 @@ export default function Home() {
             </div> 
 
             <div className='featured-products-section flex flex-col mb-48'>
-                <div className="header-featured-products text-center text-5xl font-semibold leading-5 text-[#0B0D63] mb-24">
+                <div className="header-featured-products text-center text-5xl font-semibold leading-5 dark:text-white mb-24">
                 <h2>Featured Products</h2>
                 </div>
                 <div className='main-featured-products flex flex-row justify-evenly mb-24'>
@@ -23,31 +23,31 @@ export default function Home() {
                     <div className="image-product w-80 h-80 mb-3">
                         <img src={myFeaturedProductOne} className='object-cover w-full h-full rounded-full overflow-hidden'/>
                     </div>
-                    <div className="name-product underline text-[#F08E80] font-semibold text-2xl mb-2">Product Name</div>
+                    <div className="name-product underline dark:text-white font-semibold text-2xl mb-2">Product Name</div>
                     <div className="price-product underline-offset-1">$25</div>
                 </div>
                 <div className="product-two w-fit h-fit flex flex-col items-center">
                     <div className="image-product w-80 h-80 mb-3">
                     <img src={myFeaturedProductTwo} className='object-cover w-full h-full rounded-full overflow-hidden'/>
                     </div>
-                    <div className="name-product underline text-[#F08E80] font-semibold text-2xl mb-2">Product Name</div>
+                    <div className="name-product underline dark:text-white font-semibold text-2xl mb-2">Product Name</div>
                     <div className="price-product underline-offset-1">$25</div>
                 </div>
                 <div className="product-three w-fit h-fit flex flex-col items-center">
                     <div className="image-product w-80 h-80 mb-3">
                     <img src={myFeaturedProductThree} className='object-cover w-full h-full rounded-full overflow-hidden'/>
                     </div>
-                    <div className="name-product underline text-[#F08E80] font-semibold text-2xl mb-2">Product Name</div>
+                    <div className="name-product underline dark:text-white font-semibold text-2xl mb-2">Product Name</div>
                     <div className="price-product underline-offset-1">$25</div>
                 </div>
                 </div>
                 <div className='footer-featured-products text-center'>
-                <button type='button' className='inline-block rounded-full bg-[#F08E80] px-10 pb-2 pt-2.5 text-xl font-medium leading-normal text-white shadow-black transition duration-150 ease-in-out hover:bg-primary-accent-300'>Shop All</button>
+                <button type='button' className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-lg px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Shop All</button>
                 </div>
             </div> 
 
             <div className="our-services-section p-14 mb-48">
-                <div className="header-our-services text-5xl font-semibold leading-5 text-[#0B0D63] mb-24">
+                <div className="header-our-services text-5xl font-semibold leading-5 dark:text-white mb-24">
                 <h2>Our Services</h2>
                 </div>
                 <div className="main-our-services flex justify-between">
@@ -55,7 +55,7 @@ export default function Home() {
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
                     <img src={myOurBrandImageOne} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
-                    <div className="header-our-service underline text-[#F08E80] mb-2">Lorem, ipsum.</div>
+                    <div className="header-our-service underline dark:text-white mb-2">Lorem, ipsum.</div>
                     <div className="price-our-service mb-4">25$</div>
                     <div className="description-our-service">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates ullam. Nulla ratione debitis temporibus.</div>
                 </div>
@@ -63,7 +63,7 @@ export default function Home() {
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
                     <img src={myOurBrandImageTwo} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
-                    <div className="header-our-service underline text-[#F08E80] mb-2">Lorem, ipsum.</div>
+                    <div className="header-our-service underline dark:text-white mb-2">Lorem, ipsum.</div>
                     <div className="price-our-service mb-4">25$</div>
                     <div className="description-our-service">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates ullam. Nulla ratione debitis temporibus.</div>
                 </div>
@@ -71,7 +71,7 @@ export default function Home() {
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
                     <img src={myOurBrandImageThree} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
-                    <div className="header-our-service underline text-[#F08E80] mb-2">Lorem, ipsum.</div>
+                    <div className="header-our-service underline dark:text-white mb-2">Lorem, ipsum.</div>
                     <div className="price-our-service mb-4">25$</div>
                     <div className="description-our-service">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates ullam. Nulla ratione debitis temporibus.</div>
                 </div>
@@ -83,9 +83,9 @@ export default function Home() {
                 <img src={myAboutOurBrand} className='object-cover w-full h-full rounded-2xl overflow-hidden' alt="" />
                 </div>
                 <div className="content-our-branc-section w-[50%] flex flex-col">
-                <div className="header-our-brand text-5xl font-semibold leading-5 text-[#0B0D63] mb-16"><h3>About Our Brand</h3></div>
-                <div className="explanation-our-brand mb-8 text-[#0B0D63]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo in totam libero cupiditate eum autem? Deserunt ipsam iure qui ipsa quis aspernatur quae, alias hic impedit libero, maxime quos eos ut quas aliquid itaque, sapiente perferendis explicabo natus provident officia quia iusto? Laborum dolor incidunt animi ipsa. Quaerat, ab perspiciatis.</div>
-                <div className="button-our-brand"><button type="button" className='inline-block rounded-full bg-[#F08E80] px-10 pb-2 pt-2.5 text-xl font-medium leading-normal text-white shadow-black transition duration-150 ease-in-out hover:bg-primary-accent-300'>Learn More</button></div>
+                <div className="header-our-brand text-5xl font-semibold leading-5 dark:text-white mb-16"><h3>About Our Brand</h3></div>
+                <div className="explanation-our-brand mb-8 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo in totam libero cupiditate eum autem? Deserunt ipsam iure qui ipsa quis aspernatur quae, alias hic impedit libero, maxime quos eos ut quas aliquid itaque, sapiente perferendis explicabo natus provident officia quia iusto? Laborum dolor incidunt animi ipsa. Quaerat, ab perspiciatis.</div>
+                <div className="button-our-brand"><button type="button" className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xl px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Learn More</button></div>
                 </div>
             </div>
 

@@ -7,23 +7,24 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ThemeToggle from './components/ThemeToggle';
 import dark from "./dark1.png";
+import Login from './pages/Login';
 
 function FooterComponent() {
   return (
     <>
     <div className="footer-section flex justify-between py-14 items-start">
       <div className="site-title">
-        <h2 className='text-3xl font-semibold text-[#0B0D63] mb-3'>Your Site Title</h2>
+        <h2 className='text-3xl font-semibold dark:text-white mb-3'>Your Site Title</h2>
         <div className="made-with">Made with ...</div>
       </div>
       <div className="footer-location-contact flex">
         <div className="footer-location mr-12">
-          <h2 className='text-2xl font-semibold leading-5 text-[#0B0D63] mb-3'>Location</h2>
+          <h2 className='text-2xl font-semibold leading-5 dark:text-white mb-3'>Location</h2>
           <div>123 Demo Street</div>
           <div>New York, NY 12345</div>
         </div>
         <div className="footer-contact">
-          <h2 className='text-2xl font-semibold leading-5 text-[#0B0D63] mb-3'>Contact</h2>
+          <h2 className='text-2xl font-semibold leading-5 dark:text-white mb-3'>Contact</h2>
           <div className="footer-email">xxx@example.com</div>
           <div className="footer-phone-number">555-555-55-55</div>
         </div>
@@ -47,7 +48,7 @@ function App() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-moon "><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
               </div>
               </ThemeToggle>
-              <a href="#" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
+              <a href="#" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"><NavLink to="/login">Log In</NavLink></a>
               <a href="#" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Sign up</a>
             </div>
             <nav className='third-section-header hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1'>
@@ -71,6 +72,7 @@ function App() {
             <Route path="/about" element={<About />}/>
             <Route path="/contact" element={<Contact />}/>
             <Route path="/cart" element={<Cart />}/>
+            <Route path="/login" element={<Login />}/>
           </Routes>
 
 
