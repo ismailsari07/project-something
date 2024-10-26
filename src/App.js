@@ -6,8 +6,31 @@ import Shop from "./pages/Shop";
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ThemeToggle from './components/ThemeToggle';
-import dark from "./dark1.png";
 import Login from './pages/Login';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+/*
+// function hashedPassword(password) {
+//   const bcrypt = require('bcryptjs');
+// 
+//   // Hash the password
+//   bcrypt.genSalt(10, (err, salt) => {
+//       bcrypt.hash(password, salt, (err, hash) => {
+//           console.log(hash); // Store this hash in the database
+//       });
+//   });
+// 
+//   // To verify the password
+//   bcrypt.compare(password, (err, isMatch) => {
+//       if (isMatch) {
+//           console.log("Password matches");
+//       } else {
+//           console.log("Password does not match");
+//       }
+//   });
+// }
+* */
 
 function FooterComponent() {
   return (
@@ -34,7 +57,33 @@ function FooterComponent() {
   )
 }
 
+async function getUser() {
+  try {
+    const repsonse = await axios.get("http://localhost:3000/users");
+    console.log(repsonse.data);
+  }
+  catch(error) {
+    console.log("Error: " + error);
+  }
+}
+
+async function setUser() {
+  let data = {name: "ali", email: "ayse"};
+  axios.post("http://localhost:3000/setUser", data)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
 function App() {
+  const [data, setData] = useState({ name: 'zeynep', email: 'zeynep12@gmail.com' });
+
+  setUser();
+  getUser();
+
   return (
     <div className='bg-white dark:bg-gray-900 text-black dark:text-white w-full h-full p-14 font-[bitter] text-lg font-normal'>
 
