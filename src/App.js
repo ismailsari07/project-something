@@ -59,7 +59,7 @@ function FooterComponent() {
 
 async function getUser() {
   try {
-    const repsonse = await axios.get("http://localhost:3000/users");
+    const repsonse = await axios.get("http://localhost:3000/GetUsers");
     console.log(repsonse.data);
   }
   catch(error) {
@@ -68,8 +68,9 @@ async function getUser() {
 }
 
 async function setUser() {
+  debugger;
   let data = {name: "ali", email: "ayse"};
-  axios.post("http://localhost:3000/setUser", data)
+  axios.post("http://localhost:3000/SetUser", data)
   .then(response => {
     console.log(response.data);
   })
