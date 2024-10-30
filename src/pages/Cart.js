@@ -45,9 +45,9 @@ export default function Cart() {
                                 <div className="font-medium dark:text-white">$799</div>
                             </div>
                         </div>
-                        <div class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                            <div class="text-base font-bold dark:text-gray-300">Total</div>
-                            <div class="text-base font-bold dark:text-white">$8,191.00</div>
+                        <div className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
+                            <div className="text-base font-bold dark:text-gray-300">Total</div>
+                            <div className="text-base font-bold dark:text-white">$8,191.00</div>
                         </div>
                     </div>
                     <button type="submit" className="flex w-full items-center justify-center rounded-lg bg-[#1d4ed8] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1e40af] focus:outline-none focus:ring-4 mt-3">Proceed to Checkout</button>

@@ -9,6 +9,9 @@ import ThemeToggle from './components/ThemeToggle';
 import Login from './pages/Login';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Singup from './pages/Signup';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from './app/authSlice';
 
 /*
 // function hashedPassword(password) {
@@ -68,7 +71,6 @@ async function getUser() {
 }
 
 async function setUser() {
-  debugger;
   let data = {name: "ali", email: "ayse"};
   axios.post("http://localhost:3000/SetUser", data)
   .then(response => {
@@ -80,10 +82,12 @@ async function setUser() {
 }
 
 function App() {
-  const [data, setData] = useState({ name: 'zeynep', email: 'zeynep12@gmail.com' });
+  const {isThereUser} = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
-  setUser();
-  getUser();
+  const handleLogOutClick = () => {
+    dispatch(logout());
+  }
 
   return (
     <div className='bg-white dark:bg-gray-900 text-black dark:text-white w-full h-full p-14 font-[bitter] text-lg font-normal'>
@@ -95,11 +99,31 @@ function App() {
             <div className="second-section-header flex items-center lg:order-2 justify-end grow basis-0">
               <ThemeToggle>
               <div className='text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-moon "><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-moon "><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
               </div>
               </ThemeToggle>
-              <a href="#" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"><NavLink to="/login">Log In</NavLink></a>
-              <a href="#" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Sign up</a>
+              <div className="dropdown-language mr-2">
+                <select className="w-full p-2.5 text-base bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                  <option key={0} value={"TR"}>{"Türkçe"}</option>
+                  <option key={1} value={"EN"}>{"Ingilizce"}</option>
+                </select>                    
+              </div>
+              
+              {isThereUser ? (
+                <div className='flex'>
+                  <div className='profile-logo text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user-pen"><path d="M11.5 15H7a4 4 0 0 0-4 4v2"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="7" r="4"/></svg>
+                  </div>
+                  <div className='log-out-text text-blue-600 dark:text-blue-500 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'>
+                    <a href='' onClick={handleLogOutClick}>Log Out</a>
+                  </div>
+                </div>
+              ) : (
+                <div className='flex'>
+                  <NavLink to="/login" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log In</NavLink>
+                  <NavLink to="/singup" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Signup</NavLink>
+                </div>
+              )}
             </div>
             <nav className='third-section-header hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1'>
               <ul>
@@ -123,8 +147,8 @@ function App() {
             <Route path="/contact" element={<Contact />}/>
             <Route path="/cart" element={<Cart />}/>
             <Route path="/login" element={<Login />}/>
+            <Route path="/signup" element={<Singup />}/>
           </Routes>
-
 
           <FooterComponent/>
     </div>
