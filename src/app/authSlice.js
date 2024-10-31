@@ -5,7 +5,9 @@ export const authSlice = createSlice({
     initialState: {
         isThereUser: false,
         userName: '',
-
+        country: '',
+        phoneNumber: '',
+        email: ''
     },
     reducers: {
         login: (state, action) => {
@@ -14,7 +16,6 @@ export const authSlice = createSlice({
             state.country= action.country
             state.phoneNumber= action.phoneNumber
             state.email= action.email
-            state.password= action.password
         },
         logout: (state) => {
             state.isThereUser = false

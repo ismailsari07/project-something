@@ -80,7 +80,6 @@ export default function Login() {
                     validationSchema={loginValidationSchema}
                     onSubmit={values => {
                         let userData = {
-                            isThereUser: true,
                             userName: values.name,
                             country: values.country,
                             phoneNumber: values.phoneNumber,
@@ -88,17 +87,19 @@ export default function Login() {
                             password: values.password
                         };
 
-                        dispatch(login(userData));
 
                         axios.post("http://localhost:3000/SetUser", userData)
                         .then(response => {
-                            console.log(response.data);
+                            if (response.data.Status) {
+                                dispatch(login(userData));
+                                navigate(-1);
+                            } else {
+                                console.log("There was an error while saving!")
+                            }
                         })
                         .catch(error => {
-                            console.error(error);
+                            console.error("There was an errorX while saving!");
                         });
-
-                        navigate(-1);
                     }}
                 >
                     {({values, errors, touched}) => (
