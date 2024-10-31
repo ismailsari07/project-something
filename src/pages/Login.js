@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { login } from "../app/authSlice";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
@@ -92,7 +92,7 @@ export default function Login() {
                         .then(response => {
                             if (response.data.Status) {
                                 dispatch(login(userData));
-                                navigate(-1);
+                                navigate('/');
                             } else {
                                 console.log("There was an error while saving!")
                             }
@@ -135,7 +135,7 @@ export default function Login() {
                                 <ErrorMessage name="password" component="span" className="error text-red-600 text-sm" />
                             </div>
                             <button type="submit" className='text-white w-[100%] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xl px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Send</button>
-                            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Already have an account? <NavLink to="/singup" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in here</NavLink></p>
+                            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Already have an account? <NavLink to="/singup" state={{return_url: "signup"}} className="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in here</NavLink></p>
                         </Form>
                     )}
                 </Formik>

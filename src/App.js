@@ -120,17 +120,17 @@ function App() {
                 </div>
               ) : (
                 <div className='flex'>
-                  <NavLink to="/login" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log In</NavLink>
-                  <NavLink to="/singup" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Signup</NavLink>
+                  <NavLink to="/login" state={{return_url: "login"}} className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log In</NavLink>
+                  <NavLink to="/singup" state={{return_url: "signup"}} className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Signup</NavLink>
                 </div>
               )}
             </div>
             <nav className='third-section-header hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1'>
               <ul>
-                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Shop" className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Shop</NavLink></li>
-                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/About" className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>About</NavLink></li>
-                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Contact" className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Contact</NavLink></li>
-                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Cart" className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Cart</NavLink></li>
+                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Shop" state={{return_url: "shop"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Shop</NavLink></li>
+                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/About" state={{return_url: "about"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>About</NavLink></li>
+                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Contact" state={{return_url: "contact"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Contact</NavLink></li>
+                <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Cart" state={{return_url: "cart"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Cart</NavLink></li>
                 <li className='display list-none hidden mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
                   <a href='.'>
                     <button type='button' className='inline-block rounded-full bg-[#F08E80] px-6 pb-2 pt-2.5 text-xl font-medium leading-normal text-white shadow-black transition duration-150 ease-in-out hover:bg-primary-accent-300'>Book Now</button>
@@ -147,7 +147,7 @@ function App() {
             <Route path="/contact" element={<Contact />}/>
             <Route path="/cart" element={<Cart />}/>
             <Route path="/login" element={<Login />}/>
-            <Route path="/signup" element={<Singup />}/>
+            <Route path="/singup" element={<Singup />}/>
           </Routes>
 
           <FooterComponent/>
