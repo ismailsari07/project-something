@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import myFeaturedProductOne from "../featured-products-one.png";
-import { addProduct } from "../app/usersCartSlice";
+import { addProduct, changeQuantityUserOfProduct } from "../app/usersCartSlice";
 export default function Shop() {
     const dispatch = useDispatch();
+    const {productsList} = useSelector(state => state.usersCart);
 
     // id: 1, 
     // cart_id: 101,
@@ -77,8 +78,13 @@ export default function Shop() {
         }
     ];
 
-    const clickAddProduct = (product_id, product_name, price, quantity) => {
-        dispatch(addProduct({ product_id, product_name, price, quantity }))
+    const clickAddProduct = (product_id, product_name, price, quantity, quantity_user) => {
+        let itemIndex = productsList.findIndex(product => product.product_id === product_id);
+        if (itemIndex === -1) {
+            dispatch(addProduct({ product_id, product_name, price, quantity, quantity_user }))
+        } else {
+            dispatch(changeQuantityUserOfProduct({product_id, amount: 1}));
+        }
     }
 
     return (
@@ -92,8 +98,8 @@ export default function Shop() {
                         <h2 className="font-semibold text-xl mt-3">{value.product_name}</h2>
                         <p className="dark:text-gray-400">{value.explanation}</p>
                         <div className="price add-to-cart flex justify-between items-center mt-3">
-                            <span className="font-bold text-2xl">{value.price}</span>
-                            <button type='button' onClick={() => clickAddProduct(value.product_id, value.product_name, value.price, value.quantity)} className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Add to Cart</button>
+                            <span className="font-bold text-2xl">${value.price}</span>
+                            <button type='button' onClick={() => clickAddProduct(value.product_id, value.product_name, value.price, value.quantity, 1)} className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Add to Cart</button>
                         </div>
                     </div>
                 )

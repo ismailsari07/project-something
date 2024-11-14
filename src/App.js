@@ -4,12 +4,14 @@ import About from "./pages/About";
 import Contact from './pages/Contact';
 import Shop from "./pages/Shop";
 import Home from './pages/Home';
-import Cart from './pages/Cart';
+import Cart from './pages/Cart/Cart';
 import ThemeToggle from './components/ThemeToggle';
 import Login from './pages/Login';
 import Singup from './pages/Signup';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from './app/authSlice';
+import CartLayout from './pages/Cart/CartLayout';
+import Adress from './pages/Cart/Adress';
 
 function FooterComponent() {
   return (
@@ -103,7 +105,10 @@ function App() {
             <Route path="/shop" element={<Shop />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/contact" element={<Contact />}/>
-            <Route path="/cart" element={<Cart />}/>
+            <Route path="/cart" element={<CartLayout />}>
+              <Route index={true} element={<Cart />}/>
+              <Route path="adress" element={<Adress />}/>
+            </Route>
             <Route path="/login" element={<Login />}/>
             <Route path="/singup" element={<Singup />}/>
           </Routes>

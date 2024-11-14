@@ -15,18 +15,30 @@ export const usersCartSlice = createSlice({
             //     added_at: "",
             //     updated_at: "",
             //     explanation: "" // Brief description of the product
+            //     quantity_user: 0
             // }
         ]
     },
     reducers: {
         addProduct: (state, action) => {
-            state.productsList.push(action.payload);
+            state.productsList = [
+                action.payload,
+                ...state.productsList
+            ]
+        },
+        changeQuantityUserOfProduct: (state, action) => {
+            state.productsList = state.productsList.map(product => {
+                if (action.payload.product_id === product.product_id) {
+                    product.quantity_user = product.quantity_user + action.payload.amount;
+                }
+                return product
+            })
         },
         deleteProduct: (state, action) => {
-            //todo: delete process
+            state.productsList = state.productsList.filter(item => item.product_id !== action.payload)
         }
     }
 })
 
-export const {addProduct, deleteProduct} = usersCartSlice.actions;
+export const {addProduct,changeQuantityUserOfProduct, deleteProduct} = usersCartSlice.actions;
 export default usersCartSlice.reducer;
