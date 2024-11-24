@@ -68,13 +68,13 @@ export default function Login() {
         <div className="w-full h-full flex justify-center items-center">
             <div className="login p-12 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white w-[500px] h-fit">
 
-                <h3 className="header-our-brand text-3xl font-semibold leading-5 dark:text-white mb-8">Create Your Free Account</h3>
+                <h3 className="header-our-brand text-3xl font-semibold leading-5 dark:text-white mb-8">Log In</h3>
                 <Formik 
                     initialValues={{
-                        name: '',
-                        country: 'Turkey',
-                        phoneNumber: '',
-                        email: '',
+                        country: '',
+                        city: 'Turkey',
+                        adressLine: '',
+                        postalCode: '',
                         password: ''
                     }}
                     validationSchema={loginValidationSchema}

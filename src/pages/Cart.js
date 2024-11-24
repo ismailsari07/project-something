@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import myFeaturedProductOne from "../../featured-products-one.png";
-import emptyCart from "../../emptyCart.png";
-import { changeQuantityUserOfProduct, deleteProduct } from "../../app/usersCartSlice";
+import myFeaturedProductOne from "../featured-products-one.png";
+import emptyCart from "../emptyCart.png";
+import { changeQuantityUserOfProduct, deleteProduct } from "../app/usersCartSlice";
+import { NavLink } from "react-router-dom";
 export default function Cart() {
     const {productsList} = useSelector(state => state.usersCart)
     const {isThereUser} = useSelector(state => state.auth);
@@ -14,7 +15,7 @@ export default function Cart() {
     const clickDeleteProduct = (product_id) => {
         dispatch(deleteProduct(product_id));
     }
-    
+
     return (
         <div className="flex justify-between items-start h-full">
             {productsList.length == 0 ? (
@@ -86,13 +87,17 @@ export default function Cart() {
                                 <div className="text-base font-bold dark:text-white">$8,191.00</div>
                             </div>
                         </div>
-                        <button type="submit" className="flex w-full items-center justify-center rounded-lg bg-[#1d4ed8] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1e40af] focus:outline-none focus:ring-4 mt-3">Proceed to Checkout</button>
+                        <NavLink to="/product-forms">
+                            <button type="submit" className="flex w-full items-center justify-center rounded-lg bg-[#1d4ed8] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1e40af] focus:outline-none focus:ring-4 mt-3">
+                                Proceed to Checkout
+                            </button>
+                        </NavLink>
                     </div>
                     <div className="gift-card space-y-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white p-4 mt-8">
                         <form className="space-y-4">
                             <div>
-                            <label htmlFor="voucher" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Do you have a voucher or gift card? </label>
-                            <input type="text" id="voucher" className="block w-full  p-2.5 text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required />
+                                <label htmlFor="voucher" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Do you have a voucher or gift card? </label>
+                                <input type="text" id="voucher" className="block w-full  p-2.5 text-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="" required />
                             </div>
                             <button type="submit" className="flex w-full items-center justify-center rounded-lg bg-[#1d4ed8] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1e40af] focus:outline-none focus:ring-4 ">Apply Code</button>
                         </form>
