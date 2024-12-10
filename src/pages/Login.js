@@ -4,6 +4,7 @@ import { login } from "../app/authSlice";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
+import {motion} from "framer-motion";
 
 export default function Login() {
     const dispatch = useDispatch();
@@ -65,7 +66,11 @@ export default function Login() {
     })
 
     return (
-        <div className="w-full h-full flex justify-center items-center">
+        <motion.div
+            initial={{opacity: 0, translateY: 30}}
+            animate={{opacity: 1, translateY: 0}}
+            className="w-full h-full flex justify-center items-center"
+        >
             <div className="login p-12 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white w-[500px] h-fit">
 
                 <h3 className="header-our-brand text-3xl font-semibold leading-5 dark:text-white mb-8">Log In</h3>
@@ -140,6 +145,6 @@ export default function Login() {
                     )}
                 </Formik>
             </div>
-        </div>
+        </motion.div>
     )
 }

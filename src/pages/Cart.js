@@ -3,6 +3,7 @@ import myFeaturedProductOne from "../featured-products-one.png";
 import { changeQuantityUserOfProduct, deleteProduct } from "../app/usersCartSlice";
 import { NavLink } from "react-router-dom";
 import { getImageURL } from "../utils/image-util";
+import {motion} from "framer-motion";
 export default function Cart() {
     const {productsList} = useSelector(state => state.usersCart)
     const {isThereUser} = useSelector(state => state.auth);
@@ -17,7 +18,11 @@ export default function Cart() {
     }
 
     return (
-        <div className="flex justify-between items-start h-full">
+        <motion.div
+            initial={{opacity: 0, translateY: 30}}
+            animate={{opacity: 1, translateY: 0}}
+            className="flex justify-between items-start h-full"
+        >
             {productsList.length == 0 ? (
                 <div className="flex flex-col justify-center items-center w-[100%] p-6 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white">
                     <img src={getImageURL("/empty-cart-image.png")} alt="1" className="w-80 h-80" />
@@ -108,6 +113,6 @@ export default function Cart() {
 
                 </div>
             )}
-        </div>
+        </motion.div>
     )
 }

@@ -3,13 +3,18 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../app/authSlice";
+import {motion} from "framer-motion";
 
 export default function Singup() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     return (
-        <div className="w-full h-full flex justify-center items-center my-48">
+        <motion.div
+            initial={{opacity: 0, translateY: 30}}
+            animate={{opacity: 1, translateY: 0}}
+            className="w-full h-full flex justify-center items-center my-48"
+        >
             <div className="p-12 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white w-[500px] h-fit">
 
                 <h3 className="header-our-brand text-3xl font-semibold leading-5 dark:text-white mb-8">Sign Up</h3>
@@ -59,6 +64,6 @@ export default function Singup() {
                     )}
                 </Formik>
             </div>
-        </div>
+        </motion.div>
     )
 }

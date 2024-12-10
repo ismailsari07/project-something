@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { getImageURL } from "../utils/image-util";
+import {motion} from "framer-motion";
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: "",
@@ -37,7 +38,11 @@ export default function Contact() {
       };
 
     return (
-            <div className="contact-us-section p-14 mb-24 rounded-2xl flex justify-between items-center">
+            <motion.div
+                initial={{opacity: 0, translateY: 30}}
+                animate={{opacity: 1, translateY: 0}}
+                className="contact-us-section p-14 mb-24 rounded-2xl flex justify-between items-center"
+            >
                 <div className="description-contact-us w-[40%]">
                     <img src={getImageURL("/contact-image.png")} className='object-fill h-full w-full rounded-3xl overflow-hidden' />
                 </div>
@@ -65,6 +70,6 @@ export default function Contact() {
                         <button type="submit" className='text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xl px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Send</button>
                     </form>
                 </div>
-            </div>
+            </motion.div>
     )
 }

@@ -2,6 +2,7 @@ import { getImageURL } from "../utils/image-util";
 import axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {motion} from "framer-motion";
 
 export default function Home() {
     let [featuredProducts, setFeaturedProducts] = useState([]);
@@ -23,7 +24,10 @@ export default function Home() {
     getFeaturedProducts();
 
     return (
-        <div>
+        <motion.div
+            initial={{opacity: 0, translateY: 30}}
+            animate={{opacity: 1, translateY: 0}}
+        >
             <div className='main-section relative flex h-full items-center justify-center mb-48'>
                 <img src={getImageURL("/main-photo.png")} className='object-fill h-full w-full brightness-50 dark:brightness-75 rounded-3xl overflow-hidden' />
                 <div className='absolute top-0 left-0 right-0 bottom-0 self-center w-full text-center text-7xl font-bold leading-5 text-white'><h1><span className="text-primary-400">Constructing</span> Your Future Today</h1></div>
@@ -93,6 +97,6 @@ export default function Home() {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     )
 }

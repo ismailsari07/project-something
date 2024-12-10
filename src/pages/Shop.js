@@ -3,6 +3,7 @@ import myFeaturedProductOne from "../featured-products-one.png";
 import { addProduct, changeQuantityUserOfProduct } from "../app/usersCartSlice";
 import axios from "axios";
 import { initProductsList } from "../app/productsSlice";
+import {motion} from "framer-motion"
 
 export default function Shop() {
     const dispatch = useDispatch();
@@ -32,7 +33,10 @@ export default function Shop() {
     getProducts();
 
     return (
-        <div className="flex flex-wrap justify-between content-between ">
+        <motion.div
+            initial={{opacity: 0, translateY: 30}}
+            animate={{opacity: 1, translateY: 0}} 
+            className="flex flex-wrap justify-between content-between ">
             {totalProductsList.map((value, index) => {
                 return (
                     <div className="items relative w-[24%] flex flex-col justify-between mb-[2%] p-6 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white" key={index}>
@@ -48,6 +52,6 @@ export default function Shop() {
                     </div>
                 )
             })}
-        </div>
+        </motion.div>
     )
 }
