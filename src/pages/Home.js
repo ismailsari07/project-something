@@ -1,8 +1,3 @@
-import myMainImage from "../main-photo.png";
-import myAboutOurBrand from "../imgg-od3-wfm00bc6.png";
-import myOurBrandImageOne from "../our-services-image1.png";
-import myOurBrandImageTwo from "../our-services-image2.png";
-import myOurBrandImageThree from "../our-services-image3.png";
 import { getImageURL } from "../utils/image-util";
 import axios from "axios";
 import { useState } from "react";
@@ -30,7 +25,7 @@ export default function Home() {
     return (
         <div>
             <div className='main-section relative flex h-full items-center justify-center mb-48'>
-                <img src={myMainImage} className='object-fill h-full w-full brightness-50 dark:brightness-75 rounded-3xl overflow-hidden' />
+                <img src={getImageURL("/main-photo.png")} className='object-fill h-full w-full brightness-50 dark:brightness-75 rounded-3xl overflow-hidden' />
                 <div className='absolute top-0 left-0 right-0 bottom-0 self-center w-full text-center text-7xl font-bold leading-5 text-white'><h1><span className="text-primary-400">Constructing</span> Your Future Today</h1></div>
             </div> 
 
@@ -65,21 +60,21 @@ export default function Home() {
                 <div className="main-our-services flex justify-between">
                 <div className="our-service-one w-[450px] h-fit flex flex-col rounded-xl overflow-hidden p-3">
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
-                        <img src={myOurBrandImageOne} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
+                        <img src={getImageURL("/our-services-image1.png")} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
                     <div className="header-our-service underline dark:text-white mb-2">Construction Industry</div>
                     <div className="description-our-service">Building modern, durable, and energy-efficient homes tailored to your vision. From planning to execution, we handle every step with precision.</div>
                 </div>
                 <div className="our-service-two w-[450px] h-fit flex flex-col rounded-xl overflow-hidden p-3">
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
-                        <img src={myOurBrandImageTwo} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
+                        <img src={getImageURL("/our-services-image2.png")} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
                     <div className="header-our-service underline dark:text-white mb-2">Commercial Projects</div>
                     <div className="description-our-service">Delivering large-scale commercial construction projects, including offices, retail spaces, and warehouses, designed to meet your business needs.</div>
                 </div>
                 <div className="our-service-three w-[450px] h-fit flex flex-col rounded-xl overflow-hidden p-3">
                     <div className="image-our-service max-w-full h-[441px] mb-12 rounded-xl">
-                        <img src={myOurBrandImageThree} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
+                        <img src={getImageURL("/our-services-image3.png")} className='object-cover w-full h-full rounded-2xl overflow-hidden'/>
                     </div>
                     <div className="header-our-service underline dark:text-white mb-2">Renovation & Remodeling</div>
                     <div className="description-our-service">Transform your space with our expert renovation services. From kitchens to full-scale remodels, we breathe new life into your property.</div>
@@ -89,7 +84,7 @@ export default function Home() {
 
             <div className="about-our-brand-section p-14 mb-48 rounded-2xl flex justify-between items-center">
                 <div className="image-about-our-brand w-[635px] h-[810px]">
-                    <img src={myAboutOurBrand} className='object-cover w-full h-full rounded-2xl overflow-hidden' alt="" />
+                    <img src={getImageURL("/about-our-brand.png")} className='object-cover w-full h-full rounded-2xl overflow-hidden' alt="" />
                 </div>
                 <div className="content-our-branc-section w-[50%] flex flex-col">
                     <div className="header-our-brand text-5xl font-semibold leading-5 dark:text-white mb-16"><h3>About Our Brand</h3></div>

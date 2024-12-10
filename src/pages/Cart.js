@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import myFeaturedProductOne from "../featured-products-one.png";
-import emptyCart from "../emptyCart.png";
 import { changeQuantityUserOfProduct, deleteProduct } from "../app/usersCartSlice";
 import { NavLink } from "react-router-dom";
+import { getImageURL } from "../utils/image-util";
 export default function Cart() {
     const {productsList} = useSelector(state => state.usersCart)
     const {isThereUser} = useSelector(state => state.auth);
@@ -20,7 +20,7 @@ export default function Cart() {
         <div className="flex justify-between items-start h-full">
             {productsList.length == 0 ? (
                 <div className="flex flex-col justify-center items-center w-[100%] p-6 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white">
-                    <img src={emptyCart} alt="1" className="w-80 h-80" />
+                    <img src={getImageURL("/empty-cart-image.png")} alt="1" className="w-80 h-80" />
                     <h2 className="text-3xl mb-3">Your Cart is Empty</h2>
                     <p className="text-gray-400 mb-24">Looks like you haven't added anything to your cart yet</p>
                 </div>
