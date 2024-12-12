@@ -5,8 +5,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
 import {motion} from "framer-motion";
+import { useState } from "react";
 
 export default function Login() {
+    const [status, setStatus] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -61,8 +63,11 @@ export default function Login() {
         .required("Email is required"),
 
         password: Yup.string()
-        .required("Password is required")
-        .min(6, "Password is too short - should be 6 chars minimum"),
+        .required('Password is required')  // Password field is required
+        .min(8, 'Password must be at least 8 characters')  // Check for minimum length
+        //.matches(/[A-Z]/, 'Password must contain at least one uppercase letter')  // Check for uppercase letter
+        //.matches(/\d/, 'Password must contain at least one number')  // Check for number
+        //.matches(/[@$!%*?&]/, 'Password must contain at least one special character')  // Check for special character
     })
 
     return (
@@ -99,11 +104,11 @@ export default function Login() {
                                 dispatch(login(userData));
                                 navigate('/');
                             } else {
-                                console.log("There was an error while saving!")
+                                setStatus("Oops! Something went wrong. Please try again.");
                             }
                         })
                         .catch(error => {
-                            console.error("There was an errorX while saving!");
+                            setStatus("Oops! Something went wrong. Please try again...");
                         });
                     }}
                 >
@@ -139,6 +144,7 @@ export default function Login() {
                                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">We’ll never share your details. Read our <a href="#" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Privacy Policy</a>.</p>
                                 <ErrorMessage name="password" component="span" className="error text-red-600 text-sm" />
                             </div>
+                            <p className="text-red-500 mb-3">{status}</p>
                             <button type="submit" className='text-white w-[100%] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xl px-4 lg:px-5 py-2 lg:py-2 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800'>Send</button>
                             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Already have an account? <NavLink to="/singup" state={{return_url: "signup"}} className="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in here</NavLink></p>
                         </Form>
