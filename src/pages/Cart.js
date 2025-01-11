@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { getImageURL } from "../utils/image-util";
 import {motion} from "framer-motion";
 export default function Cart() {
+    console.log("cart rendered")
     const {productsList} = useSelector(state => state.usersCart)
     const {isThereUser} = useSelector(state => state.auth);
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function Cart() {
         <motion.div
             initial={{opacity: 0, translateY: 30}}
             animate={{opacity: 1, translateY: 0}}
-            className="flex justify-between items-start h-full"
+            className="flex justify-between items-start h-[100vh]"
         >
             {productsList.length == 0 ? (
                 <div className="flex flex-col justify-center items-center w-[100%] p-6 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white">
@@ -29,7 +30,7 @@ export default function Cart() {
                     <h2 className="text-3xl mb-3">Your Cart is Empty</h2>
                     <p className="text-gray-400 mb-24">Looks like you haven't added anything to your cart yet</p>
                 </div>
-            ) : ( <div className="shopping-cart flex h-[100vh] flex-col w-[70%]"> {productsList.map((value,index) => { return (
+            ) : ( <div className="shopping-cart flex flex-col w-[70%]"> {productsList.map((value,index) => { return (
                             <div key={index} className="order flex items-center justify-between w-full p-6 mb-3 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white">
                                 <div className="w-[10%] flex items-center gap-8">
                                     <div className="image">
@@ -40,7 +41,7 @@ export default function Cart() {
                                     <div className="flex flex-col justify-between items-start h-fit gap-4">
                                         <a href="#" className="text-lg font-medium hover:underline">{value.product_name}</a>
                                         <button type="button" onClick={() => clickDeleteProduct(value.product_id)} className="inline-flex  items-center text-sm font-medium text-red-600 hover:underline">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                                             <span className="text-base ml-2">Remove</span>
                                         </button>
                                     </div>

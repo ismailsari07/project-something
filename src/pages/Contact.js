@@ -5,6 +5,7 @@ import { ErrorMessage, Form, Field, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 export default function Contact() {
+    console.log("contact rendered")
     const [status, setStatus] = useState({isError: false, message: ""});
 
     const contactValidationSchema = Yup.object().shape({

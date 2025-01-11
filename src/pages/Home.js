@@ -1,13 +1,14 @@
 import { getImageURL } from "../utils/image-util";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {motion} from "framer-motion";
 
 export default function Home() {
+    console.log("home rendered")
     let [featuredProducts, setFeaturedProducts] = useState([]);
 
-    const getFeaturedProducts = () => {
+    useEffect(() => {
         axios.get("http://localhost:3000/GetFeturedProducts")
         .then(response => {
             if (response.data.Status) {
@@ -19,9 +20,8 @@ export default function Home() {
         .catch(error => {
             console.error("There was an error about featured products.");
         });
-    }
 
-    getFeaturedProducts();
+    }, [])
 
     return (
         <motion.div

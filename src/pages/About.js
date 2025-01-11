@@ -2,6 +2,7 @@ import { getImageURL } from "../utils/image-util";
 import {motion} from "framer-motion"
 
 export default function About() {
+    console.log("about rendered")
     return (
         <motion.div
             initial={{opacity: 0, translateY: 30}}

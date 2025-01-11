@@ -4,8 +4,10 @@ import { addProduct, changeQuantityUserOfProduct } from "../app/usersCartSlice";
 import axios from "axios";
 import { initProductsList } from "../app/productsSlice";
 import {motion} from "framer-motion"
+import { useEffect } from "react";
 
 export default function Shop() {
+    console.log("shop rendered")
     const dispatch = useDispatch();
 
     const {productsList} = useSelector(state => state.usersCart);
@@ -20,7 +22,7 @@ export default function Shop() {
         }
     }
 
-    const getProducts = () => {
+    useEffect(() => {
         axios.get("http://localhost:3000/GetProducts")
         .then(response => {
             if (response.data.Status) {
@@ -29,8 +31,10 @@ export default function Shop() {
                 console.log("There was an error about featured products.")
             }
         })
-    }
-    getProducts();
+        .catch(error => {
+            console.error("There was an error about featured products.");
+        });
+    }, [])
 
     return (
         <motion.div

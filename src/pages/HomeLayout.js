@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../app/authSlice';
 
 export default function HomeLayout() {
+    console.log("home layout rendered")
     const {isThereUser} = useSelector(state => state.auth);
     const {productsList} = useSelector(state => state.usersCart);
     const dispatch = useDispatch();
@@ -50,17 +51,32 @@ export default function HomeLayout() {
                 </div>
                 <nav className='third-section-header hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1'>
                     <ul>
-                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Shop" state={{return_url: "shop"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Shop</NavLink></li>
-                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/About" state={{return_url: "about"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>About</NavLink></li>
-                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'><NavLink to="/Contact" state={{return_url: "contact"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>Contact</NavLink></li>
+                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
+                            <NavLink to="/Shop" state={{return_url: "shop"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>
+                                Shop
+                            </NavLink>
+                        </li>
+                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
+                            <NavLink to="/About" state={{return_url: "about"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>
+                                About
+                            </NavLink>
+                        </li>
+                        <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
+                            <NavLink to="/Contact" state={{return_url: "contact"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>
+                                Contact
+                            </NavLink>
+                        </li>
                         <li className='display list-none inline mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
                             <NavLink to="/Cart" state={{return_url: "cart"}} className={({isActive, isPending}) => isActive ? "dark:text-white text-primary-700 font-semibold" : ""}>
                                 Cart {productsList.length === 0 ? "" : " { " + productsList.length + " }"}
-                            </NavLink></li>
+                            </NavLink>
+                        </li>
                         <li className='display list-none hidden mr-6 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-primary-700 text-gray-700'>
-                        <a href='.'>
-                            <button type='button' className='inline-block rounded-full bg-[#F08E80] px-6 pb-2 pt-2.5 text-xl font-medium leading-normal text-white shadow-black transition duration-150 ease-in-out hover:bg-primary-accent-300'>Book Now</button>
-                        </a>
+                            <a href='.'>
+                                <button type='button' className='inline-block rounded-full bg-[#F08E80] px-6 pb-2 pt-2.5 text-xl font-medium leading-normal text-white shadow-black transition duration-150 ease-in-out hover:bg-primary-accent-300'>
+                                    Book Now
+                                </button>
+                            </a>
                         </li>
                     </ul>
                 </nav>

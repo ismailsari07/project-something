@@ -8,6 +8,7 @@ import {motion} from "framer-motion";
 import { useState } from "react";
 
 export default function Login() {
+    console.log("login rendered")
     const [status, setStatus] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();

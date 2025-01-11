@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import { useState } from "react";
 
 export default function Singup() {
+    console.log("singup rendered")
     const [status, setStatus] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
