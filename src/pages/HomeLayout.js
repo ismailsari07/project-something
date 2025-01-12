@@ -15,7 +15,6 @@ export default function HomeLayout() {
 
     return (
         <div className='bg-white dark:bg-gray-900 text-black dark:text-white w-full h-full p-14 font-[bitter] text-lg font-normal'>
-
             <div className='first-section-header flex flex-wrap justify-between items-center mb-14'>
                 <div className='logo-section grow basis-0'>
                     <NavLink to='/' className='text-2xl leading-5 font-semibold dark:text-white'>Procer</NavLink>

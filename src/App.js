@@ -15,7 +15,6 @@ import Payment from './pages/ProductForm/Payment';
 import Summary from './pages/ProductForm/Summary';
 
 function App() {
-  console.log("app rendered");
   return (
           <Routes className="h-full">
             <Route path="/" element={<HomeLayout/>}>
